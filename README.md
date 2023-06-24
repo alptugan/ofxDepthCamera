@@ -12,8 +12,8 @@
 
 
 ## To-do
-- [ x ] Added Asus Xtion Pro Live Version 1 support `AsusXtionProV1.h` and `AsusXtionProV1.cpp` 
-- [ x ] Update `example-basic`
+- [ X ] Added Asus Xtion Pro Live Version 1 support `AsusXtionProV1.h` and `AsusXtionProV1.cpp` 
+- [X] Update `example-basic`
 - [ ] Update `example-sender`
 - [ ] Add `ofxGui` to adjust standard parameters on the fly.
 - [ ] Copy `NI2` via script to the app Contents folder.
