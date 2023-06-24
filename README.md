@@ -1,7 +1,29 @@
-# Update & fix for oF v0.11.2
-- added Asus Xtion Depth Cam class 
+# Update to "adapters" & fix for oF v0.11.2
+- The following code tested on Mac OS using [ASUS Xtion Pro Live One](https://www.ebay.com/sch/i.html?_nkw=Xtion%20Pro&norover=1&mkevt=1&mkrid=711-156598-679417-4&mkcid=2&mkscid=102&keyword=xtion%20pro&crlp=435090577636_&MT_ID=585586&geo_id=10232&rlsatarget=kwd-298545702222&adpos=&device=c&mktype=&loc=1012782&poi=&abcId=1141816&cmpgn=6540188525&sitelnk=&adgroupid=80192734722&network=g&matchtype=b&gclid=Cj0KCQjwqNqkBhDlARIsAFaxvwzRqRFnLAOUf-khhaAQCMJdaMFRvWPwZikd99nu6FkNim8EV9erwHQaAuBLEALw_wcB).
+- Compiled via QtCreator.
+- Requires my fork of [ofxNI2](https://github.com/alptugan/ofxNI2/tree/master) addon.
+- Import the `example-basic` project in your IDE. 
+- Build the project. This will create the `example-basic_debug.app` which we will need to have to make run the sensor appropriatley. 
+- Copy the `ofxNI2/libs/OpenNI2/lib/osx/Drivers/` folder to `example-basic/bin/example-basic_debug.app/Contents/MacOS/`
+- Copy the `ofxNI2/libs/NiTE2/lib/osx/libNiTE2.dylib` to `example-basic/bin/example-basic_debug.app/Contents/MacOS/`
+- Copy the `ofxNI2/libs/OpenNI2/lib/osx/libOpenNI2.dylib` to `example-basic/bin/example-basic_debug.app/Contents/MacOS/`
+- Copy the `ofxNI2/libs/OpenNI2/lib/osx/OpenNI.ini` to `example-basic/bin/example-basic_debug.app/Contents/MacOS/`
+- Copy the `ofxNI2/libs/OpenNI2/lib/osx/PS1080.ini` to `example-basic/bin/example-basic_debug.app/Contents/MacOS/`
 
-# ofxDepthCamera
+
+## To-do
+- [x] Added Asus Xtion Pro Live Version 1 support `AsusXtionProV1.h` and `AsusXtionProV1.cpp` 
+- [x] Update `example-basic`
+- [ ] Update `example-sender`
+- [ ] Add `ofxGui` to adjust standard parameters on the fly.
+- [ ] Copy `NI2` via script to the app Contents folder.
+- [ ] Add pointcloud and mesh for interactive projects.
+
+
+
+
+
+# ofxDepthCamera (Original README.md)
 
 Device-independent library for working with depth cameras, recording, playback, and streaming remotely
 

@@ -69,22 +69,22 @@ void ofxDepthCamera::update() {
 
 bool ofxDepthCamera::isFrameNew() {
 	// TODO report new frame from recorder/receiver/player/etc
-	if (!camera) return;
+    if (!camera) return false;
 	return camera->isFrameNew();
 }
 
 float ofxDepthCamera::getFrameRate() {
-	if (!camera) return;
+    if (!camera) return 0;
 	return camera->getFrameRate();
 }
 
 ofVec3f ofxDepthCamera::getWorldCoordinateAt(int x, int y) {
-	if (!camera) return;
+    if (!camera) return ofVec3f(-1);
 	return camera->getWorldCoordinateAt(x, y);
 }
 
 unsigned short ofxDepthCamera::getMaxDepth() {
-	if (!camera) return;
+    if (!camera) return -1;
 	return camera->getMaxDepth();
 }
 
@@ -137,7 +137,7 @@ void ofxDepthCamera::updateDepthImage(ofShortPixels& depthPixels) {
 ofShortPixels& ofxDepthCamera::getRawDepth() {
 	if (bLive) {
 		if (!bRemote) {
-			if (!camera) return;
+            if (!camera) ofLogError() <<  "Depth Camera not ready";
 			return camera->getRawDepth();
 		} else {
 			return receiver->getDepthPixels();
@@ -150,7 +150,7 @@ ofShortPixels& ofxDepthCamera::getRawDepth() {
 ofImage& ofxDepthCamera::getDepthImage() {
 	if (bLive) {
 		if (!bRemote) {
-			if (!camera) return;
+            if (!camera) ofLogError() <<  "Depth Camera not ready";
 			if (bDepthImageDirty) {
 				updateDepthImage(camera->getRawDepth());
 			}
@@ -169,39 +169,39 @@ ofImage& ofxDepthCamera::getDepthImage() {
 ofImage& ofxDepthCamera::getColorImage() {
 	if (bLive) {
 		if (!bRemote) {
-			if (!camera) return;
+            if (!camera) ofLogError() <<  "Depth Camera not ready";
 			return camera->getColorImage();
 		}
 		else {
 			// TODO support for remote color
-			if (!camera) return;
+            if (!camera) ofLogError() <<  "Depth Camera not ready";
 			return camera->getColorImage();
 		}
 	}
 	else {
 		// TODO support for playback of color
-		if (!camera) return;
+        if (!camera) ofLogError() <<  "Depth Camera not ready";
 		return camera->getColorImage();
 	}
 }
 
 int ofxDepthCamera::getDepthWidth() {
-	if (!camera) return;
+    if (!camera) ofLogError() <<  "Depth Camera not ready";
 	return camera->getRawDepth().getWidth();
 }
 
 int ofxDepthCamera::getDepthHeight() {
-	if (!camera) return;
+    if (!camera) ofLogError() <<  "Depth Camera not ready";
 	return camera->getRawDepth().getHeight();
 }
 
 int ofxDepthCamera::getColorWidth() {
-	if (!camera) return;
+    if (!camera) ofLogError() <<  "Depth Camera not ready";
 	return camera->getColorImage().getWidth();
 }
 
 int ofxDepthCamera::getColorHeight() {
-	if (!camera) return;
+    if (!camera) ofLogError() <<  "Depth Camera not ready";
 	return camera->getColorImage().getHeight();
 }
 

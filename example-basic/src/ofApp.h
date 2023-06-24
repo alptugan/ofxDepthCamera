@@ -1,7 +1,12 @@
 #pragma once
 
+
+//#define OFX_DEPTH_CAMERA_ASUS_PRO_V1
+
+
 #include "ofMain.h"
 #include "ofxDepthCamera.h"
+
 
 class ofApp : public ofBaseApp {
 

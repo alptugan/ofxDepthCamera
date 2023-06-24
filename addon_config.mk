@@ -6,9 +6,9 @@ meta:
 	ADDON_URL = http://github.com/mattfelsen/ofxDepthCamera
 
 common:
-	ADDON_INCLUDES += addons/ofxImageSequence/src
-	ADDON_INCLUDES += addons/ofxImageSequencePlayback/src
-	ADDON_INCLUDES += addons/ofxImageSequenceRecorder/src
+        ADDON_INCLUDES += addons/ofxImageSequence/src
+        ADDON_INCLUDES += addons/ofxImageSequencePlayback/src
+        ADDON_INCLUDES += addons/ofxImageSequenceRecorder/src
 	
 	ADDON_SOURCES += addons/ofxImageSequence/src/ofxImageSequence.h
 	ADDON_SOURCES += addons/ofxImageSequence/src/ofxImageSequence.cpp
