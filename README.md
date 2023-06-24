@@ -1,3 +1,6 @@
+# Update & fix for oF v0.11.2
+- added Asus Xtion Depth Cam class 
+
 # ofxDepthCamera
 
 Device-independent library for working with depth cameras, recording, playback, and streaming remotely
