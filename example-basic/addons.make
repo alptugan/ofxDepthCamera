@@ -1,3 +1,2 @@
 ofxDepthCamera
-ofxLibwebsockets
 ofxOrbbecAstra

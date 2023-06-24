@@ -2,16 +2,17 @@
 
 #include "ofMain.h"
 #include "ofxDepthCamera.h"
-#include "ofxDepthCamera/Sender.h"
 
-class ofApp : public ofBaseApp{
-	
+class ofApp : public ofBaseApp {
+
 public:
 	void setup();
 	void update();
 	void draw();
-	
+
+	void keyPressed(int key);
+	void dragEvent(ofDragInfo dragInfo);
+
 	ofxDepthCamera device;
-	ofxDepthCam::Sender sender;
-	
+
 };
