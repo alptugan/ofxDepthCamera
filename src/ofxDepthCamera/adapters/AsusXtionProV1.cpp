@@ -10,10 +10,12 @@ AsusXtionProV1::AsusXtionProV1() {
 
     frameRate = 30;
 
-    // Max range is sorted of hinted to be 8m in these docs, so give a bit
+    // Max range is sorted of hinted to be 3.5m in these docs, so give a bit
     // of extra padding..
-    // https://msdn.microsoft.com/en-us/library/hh973078.aspx#Depth_Ranges
-    maxDepth = 9 * 1000;
+    // http://xtionprolive.com/asus-3d-depth-camera/asus-xtion-pro-live
+    // near 0.8 m
+    // far 3.5 m
+    maxDepth = 4 * 1000;
     this->useColor = true;
 }
 
@@ -24,6 +26,7 @@ ofxNI2::Device& AsusXtionProV1::getSensor() {
 void AsusXtionProV1::setup(int deviceId, bool useColor) {
     this->useColor = useColor;
 
+    ofLog() << "useColor : " << useColor;
     // setup device
     device.setup();
     if (depth.setup(device))
@@ -63,6 +66,16 @@ void AsusXtionProV1::setup(int deviceId, bool useColor) {
 
         }
     }
+
+    gray.setup(depth);
+    // ofLog() << gray.getNear() << " - Far: " << gray.getFar();
+    // ofLog() << Near: 50 - Far: 10000
+    //gray.setNear(1000);
+    //gray.setFar(1001);
+
+
+    // if enabled, it causes laggy behaviour
+    device.setDepthColorSyncEnabled(false);
 }
 
 void AsusXtionProV1::close()
@@ -82,7 +95,7 @@ void AsusXtionProV1::update() {
 
     bNewFrame = depth.isFrameNew();
 
-    depth.updateTextureIfNeeded();
+    //depth.updateTextureIfNeeded();
 
     if(!this->useColor) {
         ir.updateTextureIfNeeded();
@@ -95,6 +108,7 @@ void AsusXtionProV1::update() {
     //const unsigned short* px = depth.getPixelsRef().getData();
     //depthPixels.setFromPixels(px, depth.getWidth(), depth.getHeight(),OF_IMAGE_GRAYSCALE);
     depthPixels = depth.getPixelsRef();
+
 }
 
 

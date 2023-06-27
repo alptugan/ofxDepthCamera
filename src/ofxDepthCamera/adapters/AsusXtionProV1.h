@@ -20,12 +20,16 @@ public:
     void update();
 
     ofVec3f getWorldCoordinateAt(int x, int y);
+    ofxNI2::Grayscale gray;
 
 protected:
     ofxNI2::Device device;
     ofxNI2::IrStream ir;
     ofxNI2::DepthStream depth;
     ofxNI2::ColorStream color;
+
+
+
     bool useColor;
 };
 }

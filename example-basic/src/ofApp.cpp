@@ -30,7 +30,7 @@ void ofApp::setup() {
     //	ptr->getSensor().initVideoGrabber();
 
 
-    device.setup<AsusXtionProV1>();
+    device.setup<AsusXtionProV1>(0,true);
     // Set the near/far depth values in millimeters
     device.setDepthClipping(400, 4500);
 
@@ -54,8 +54,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
     device.getDepthImage().draw(0, 0);
+
     device.getColorImage().draw(0, device.getDepthHeight(), device.getDepthWidth(), device.getDepthHeight());
+
 }
 
 //--------------------------------------------------------------

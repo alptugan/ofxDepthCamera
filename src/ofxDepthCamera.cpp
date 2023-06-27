@@ -169,18 +169,18 @@ ofImage& ofxDepthCamera::getDepthImage() {
 ofImage& ofxDepthCamera::getColorImage() {
 	if (bLive) {
 		if (!bRemote) {
-            if (!camera) ofLogError() <<  "Depth Camera not ready";
+            if (!camera) ofLogError() <<  "Color Camera not ready";
 			return camera->getColorImage();
 		}
 		else {
 			// TODO support for remote color
-            if (!camera) ofLogError() <<  "Depth Camera not ready";
+            if (!camera) ofLogError() <<  "Color Camera not ready";
 			return camera->getColorImage();
 		}
 	}
 	else {
 		// TODO support for playback of color
-        if (!camera) ofLogError() <<  "Depth Camera not ready";
+        if (!camera) ofLogError() <<  "Color Camera not ready";
 		return camera->getColorImage();
 	}
 }
@@ -196,12 +196,12 @@ int ofxDepthCamera::getDepthHeight() {
 }
 
 int ofxDepthCamera::getColorWidth() {
-    if (!camera) ofLogError() <<  "Depth Camera not ready";
+    if (!camera) ofLogError() <<  "Color Camera not ready";
 	return camera->getColorImage().getWidth();
 }
 
 int ofxDepthCamera::getColorHeight() {
-    if (!camera) ofLogError() <<  "Depth Camera not ready";
+    if (!camera) ofLogError() <<  "Color Camera not ready";
 	return camera->getColorImage().getHeight();
 }
 
